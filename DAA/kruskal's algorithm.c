@@ -2,8 +2,7 @@
 #define V 5 
 #define E 6 
 int parent[V]; 
- 
-// Find the representative (leader) of the set containing vertex v 
+  
 int findLeader(int v) 
 { 
     while (parent[v] != v) 
@@ -11,7 +10,6 @@ int findLeader(int v)
     return v; 
 } 
  
-// Merge two disjoint sets 
 void mergeSets(int u, int v) 
 { 
     int a = findLeader(u); 
@@ -19,7 +17,6 @@ void mergeSets(int u, int v)
     parent[a] = b; 
 } 
  
-// Bubble sort to organize edges by weight 
 void sortEdges(int edges[E][3]) 
 { 
     for (int i = 0; i < E - 1; i++) 
@@ -54,7 +51,6 @@ void kruskal(int edges[E][3])
         int v = edges[i][1]; 
         int w = edges[i][2]; 
  
-        // If leaders are different, no cycle is formed 
         if (findLeader(u) != findLeader(v)) 
         { 
             printf("%d -- %d (Weight: %d)\n", u, v, w); 
